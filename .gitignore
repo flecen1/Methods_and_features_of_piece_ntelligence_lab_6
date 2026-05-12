@@ -1,0 +1,24 @@
+# Віртуальне середовище
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# Локальні артефакти / IDE
+.idea/
+.vscode/
+.cursor/
+
+# Згенеровані рисунки та Word (за потреби закомітьте figures/ уручну)
+figures/
+*.docx
+
+# Windows
+Thumbs.db
+Desktop.ini
