@@ -10,14 +10,17 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
-# Локальні артефакти / IDE
+# IDE
 .idea/
 .vscode/
 .cursor/
 
-# Згенеровані рисунки та Word (за потреби закомітьте figures/ уручну)
+# Локальні артефакти
 figures/
 *.docx
+
+# Не публікувати в репозиторій (за потреби залишайте лише локально)
+build_methodical_docx.py
 
 # Windows
 Thumbs.db
