@@ -128,6 +128,9 @@ def run_foreign_letter(
 ) -> dict:
     alphabet = load_alphabet(alphabet_path)
     letters = get_variant_letters(variant)
+    foreign = foreign.strip().upper()
+    if foreign in letters:
+        raise ValueError("Чужа літера не повинна збігатися з навчальними літерами варіанту.")
     pats_bin = np.stack([letter_column(alphabet, ch) for ch in letters], axis=1)
     pats_bip = bin01_to_bipolar(pats_bin)
     w = train_weights(pats_bip)
@@ -144,7 +147,7 @@ def run_foreign_letter(
     return {
         "variant": variant,
         "trained_letters": list(letters),
-        "foreign_letter": foreign.upper(),
+        "foreign_letter": foreign,
         "final_bipolar": s.tolist(),
         "sweeps": sweeps,
         "converged": conv,
@@ -225,8 +228,8 @@ def main() -> None:
         li = letters.index(ch)
         target_bin = pats_bin[:, li]
         s0 = noisy_initial(target_bin, args.noise, rng)
-        s, _sw, _conv = recall_async(w, s0, max_sweeps=5000, rng=rng)
-        s_bin = bipolar_to_bin01(s)
+        recall_res = recall_with_energy_trace(w, s0, max_sweeps=5000, rng=rng)
+        s_bin = bipolar_to_bin01(recall_res.final_bipolar)
         out_p = Path(args.plot_file) if args.plot_file else None
         plot_triptych(
             target_bin,
@@ -237,9 +240,8 @@ def main() -> None:
             suptitle=f"Варіант {args.variant}, літера {ch}, шум σ={args.noise}",
         )
         if args.plot_energy:
-            res = recall_with_energy_trace(w, s0, max_sweeps=5000, rng=rng)
             pe = out_p.with_name(out_p.stem + "_energy.png") if out_p else None
-            plot_energy(res.energies, out_path=pe, show=not args.no_show)
+            plot_energy(recall_res.energies, out_path=pe, show=not args.no_show)
 
     if args.json:
         print(json.dumps(exp, ensure_ascii=False, indent=2))

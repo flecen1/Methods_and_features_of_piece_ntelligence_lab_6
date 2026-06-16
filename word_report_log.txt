@@ -1,0 +1,10 @@
+Starting Word document generation...
+Document object created
+Title page added
+Meta section added
+Theory section added
+Noise experiment section added
+Triptychs and energy section added
+Foreign letter section added
+Conclusions section added
+Word document created: C:\Users\Ярослав\Desktop\lab6ai\ЗВІТ_ЛР6_Петренко_Ярослав_КНД-31.docx

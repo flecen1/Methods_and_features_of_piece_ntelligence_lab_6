@@ -1,0 +1,5 @@
+Hello from simple_test.py!
+NumPy imported successfully
+alphabet.py imported successfully
+Alphabet loaded, shape: (35, 26)
+Simple test passed!
