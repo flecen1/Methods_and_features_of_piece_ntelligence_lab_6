@@ -1,4 +1,0 @@
-﻿None
-ModuleSpec(name='pymupdf', loader=<_frozen_importlib_external.SourceFileLoader object at 0x00000261EA690950>, origin='C:\\Users\\▀Ёюёырт\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pymupdf\\__init__.py', submodule_search_locations=['C:\\Users\\▀Ёюёырт\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pymupdf'])
-ModuleSpec(name='fitz', loader=<_frozen_importlib_external.SourceFileLoader object at 0x00000261EA690890>, origin='C:\\Users\\▀Ёюёырт\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\fitz\\__init__.py', submodule_search_locations=['C:\\Users\\▀Ёюёырт\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\fitz'])
-None
